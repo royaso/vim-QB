@@ -17,7 +17,7 @@ def QB():
         all=bs(html.text,features='lxml')
         all=all.select('.article')
         all=[item.select('.content>span')[0].get_text().strip() for item in all ]
-        all=[item for item in all if len(item) > 11] #有些结果是图片，去除掉
+        all=[item.replace('\n','') for item in all if item ] #有些结果是图片，去除掉
         vim.current.buffer.append(all)
 
 

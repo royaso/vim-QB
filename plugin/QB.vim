@@ -17,19 +17,19 @@ import vim
 plugin_root_dir = vim.eval('s:plugin_root_dir')
 python_root_dir = normpath(join(plugin_root_dir, '..', 'python'))
 sys.path.insert(0, python_root_dir)
-import sample
+import QB
 
 EOF
 
 function! Get_country()
-        py3 print(sample.get_country())
+        py3 print(QB.get_country())
 endfunction
 
 command! -nargs=0 PrintCountry call Get_country()
 
 
 function! InsertCountry()
-        py3 sample.insert_country()
+        py3 QB.insert_country()
 endfunction
 
 command! -nargs=0 InsertCountry call InsertCountry()
@@ -38,7 +38,7 @@ nnoremap <leader>c :call InsertCountry()<cr>
 
 
 function! QB()
-        py3 sample.QB()
+        py3 QB.QB()
 endfunction
 
 command! -nargs=0 QB call QB()
